@@ -1,0 +1,52 @@
+# .dockerignore
+
+# Git 관련 파일 및 폴더
+.git
+.gitignore
+.gitmodules
+
+# Python 가상 환경 폴더
+.venv
+venv
+env
+/app/.venv # 특정 경로에 가상 환경이 있을 경우 (예: /app/venv)
+
+# 파이썬 캐시 파일
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE 관련 파일 및 폴더
+.idea/             # PyCharm 등 IntelliJ IDEA 계열 IDE 설정
+.vscode/           # VS Code 설정
+*.sublime-project
+*.sublime-workspace
+
+# 운영체제 관련 임시 파일
+.DS_Store          # macOS
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# 빌드 및 배포 관련 임시/로그 파일
+*.log
+*.tmp
+*.temp
+dist/
+build/
+*.egg-info/
+
+# 테스트 관련 불필요 파일 (이미 tests 폴더를 복사하도록 설정했으므로, 이 부분을 포함할 수도 있습니다.)
+# .pytest_cache/
+# htmlcov/
+# .coverage
+
+# 민감한 정보 또는 설정 파일 (필요에 따라 추가)
+.env
+.flaskenv
+*.sqlite3
+config/*.ini
+config/*.json
+*.key
+*.pem
