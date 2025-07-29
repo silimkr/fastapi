@@ -10,7 +10,8 @@ RUN apk add --no-cache build-base linux-headers libffi-dev
 WORKDIR /app
 
 # requirements-tests.txt 파일을 복사하고 Python 종속성 설치
-COPY requirements-tests.txt .
+# COPY requirements-tests.txt .
+COPY . .
 RUN pip install --no-cache-dir -r requirements-tests.txt
 
 # Stage 2: 최종 이미지 (런타임)
@@ -20,7 +21,7 @@ FROM python:3.10-alpine
 RUN apk add --no-cache libffi
 
 # 작업 디렉토리 설정
-WORKDIR /app
+# WORKDIR /app
 
 # 빌드 스테이지에서 설치된 Python 패키지들을 복사
 COPY --from=builder /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
@@ -28,7 +29,7 @@ COPY --from=builder /usr/local/bin /usr/local/bin
 
 # 'tests' 폴더만 컨테이너의 작업 디렉토리로 복사
 # 프로젝트 루트 디렉토리에 'tests' 폴더가 있다고 가정합니다.
-COPY tests ./tests
+# COPY tests ./tests
 
 # 애플리케이션이 실행될 포트를 노출합니다.
 EXPOSE 8080
