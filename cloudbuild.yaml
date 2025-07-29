@@ -30,3 +30,7 @@ steps:
 # 이 섹션은 Cloud Build가 어떤 이미지가 빌드되었는지 추적하는 데 도움이 됩니다.
 images:
 - 'asia-northeast3-docker.pkg.dev/$PROJECT_ID/my-fastapi-repo/my-fastapi-app:$COMMIT_SHA'
+
+options:
+  # 로그를 Cloud Logging으로만 전송하고 Cloud Storage에는 저장하지 않습니다.
+  logging: CLOUD_LOGGING_ONLY
